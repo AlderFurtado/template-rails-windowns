@@ -13,7 +13,6 @@ WORKDIR $RAILS_ROOT
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler:2.1.2
 RUN bundle update --bundler
-
 RUN bundle install
 
 COPY . .

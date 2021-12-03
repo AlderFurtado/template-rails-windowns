@@ -3,9 +3,11 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.all
 
-    render json: @products
+    $kafka_producer.produce("nova mensagem", topic: "quickstart-events")
+    $kafka_producer.deliver_messages
+    # @products = Product.all
+    render json: {message: "ok"}
   end
 
   # GET /products/1
