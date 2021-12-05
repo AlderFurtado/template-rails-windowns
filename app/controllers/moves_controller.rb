@@ -16,6 +16,7 @@ class MovesController < ApplicationController
   # POST /moves
   def create
     @move = Move.new
+    puts params
     @move.value = params[:value]
 
     if @move.save
